@@ -1,6 +1,5 @@
 from fastapi import APIRouter
-from app.api.api_v1.endpoints import product_retrieve, product_search, collection_create, sentiment_analysis, url_content,youtube_content, fileprocess,mcq_quiz,flashcard, note_take,chats,task_planner
-
+from app.api.api_v1.endpoints import product_retrieve, product_search, collection_create, sentiment_analysis, url_content,youtube_content, fileprocess,mcq_quiz,flashcard, note_take,chats,task_planner, send_task_reminders
 api_router_v1 = APIRouter()
 
 api_router_v1.include_router(product_retrieve.router, prefix="/product_retrieve", tags=["product_retrieve"])
@@ -15,3 +14,4 @@ api_router_v1.include_router(flashcard.router, prefix="/flashcard", tags=["flash
 api_router_v1.include_router(note_take.router, prefix="/note_take", tags=["note_take"])
 api_router_v1.include_router(chats.router, prefix="/chats", tags=["chats"])
 api_router_v1.include_router(task_planner.router, prefix="/task-planner", tags=["task-planner"])
+api_router_v1.include_router(send_task_reminders.router, prefix="/remainder-mail-send", tags=["remainder-mail-send"])
